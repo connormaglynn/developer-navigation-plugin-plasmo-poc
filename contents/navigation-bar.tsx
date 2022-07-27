@@ -2,7 +2,7 @@ import cssText from "data-text:~/contents/navigation-bar.css"
 import type { PlasmoContentScript } from "plasmo"
 
 export const config: PlasmoContentScript = {
-  matches: ["https://www.plasmo.com/*"],
+  matches: ["https://github.com/*", "https://app.circleci.com/pipelines/github/*"],
   css: ["font.css"]
 }
 
@@ -16,16 +16,24 @@ export const getStyle = () => {
   return style
 }
 
-const PlasmoOverlay = () => {
+const currentUrl = window.location.href
+const resourceArray = currentUrl.split('/')
+const organization = resourceArray[resourceArray.length - 2] || ''
+const project = resourceArray[resourceArray.length - 1] || ''
+
+const NavigationBar = () => {
   return (
-    <span
-      className="hw-top"
-      style={{
-        padding: 12
-      }}>
-      HELLO WORLD TOP
-    </span>
+    <div className="navigation-bar" style={{}}>
+      <Button name="Github"  href={"https://github.com/" + organization + "/" + project} className="github button" />
+      <Button name="CircleCI" href={"https://app.circleci.com/pipelines/github/" + organization + "/" + project} className="circleci button" />
+    </div>
   )
 }
 
-export default PlasmoOverlay
+const Button = (props) => {
+  return (
+    <a href={props.href} className={props.className}>{props.name}</a>
+  )
+}
+
+export default NavigationBar
