@@ -1,3 +1,11 @@
+# Developer Navigation Plugin Plasmo Proof of Concept
+
+This codebase is a proof of concept for a developer navigation plugin using the [Plasmo Framework](https://docs.plasmo.com/). 
+
+**The Goal**: To showcase that the Plasmo Framework could be used to create the Developer Navigation Plugin.
+
+**The Decision**: I will use the Plasmo Framework to create the Developer Navigation Plugin. Creating it from scratch proved more cumbersome. Plasmo provides sensible abstractions, has a better development experience and will be a good introduction into the React Framework for learning and development.
+
 This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
 
 ## Getting Started
